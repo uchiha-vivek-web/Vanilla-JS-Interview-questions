@@ -1,20 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const add_button = document.getElementById('add');
-    
-    const add = (num_1_text, num_2_text) => {
-        return Number(num_1_text) + Number(num_2_text);  // Convert to numbers
-    };
+document.getElementById('add').addEventListener('click', () => {
+    const num1 = Number(document.getElementById('num-1').value);
+    const num2 = Number(document.getElementById('num-2').value);
 
-    add_button.addEventListener('click', () => {
-        const number_1 = document.getElementById('num-1').value;
-        const number_2 = document.getElementById('num-2').value;
+    if (!num1 && num1 !== 0 || !num2 && num2 !== 0) {
+        alert("Please enter both numbers.");
+        return;
+    }
 
-        if (number_1 === "" || number_2 === "") {
-            alert("Please enter both numbers.");
-            return;
-        }
-
-        const result = add(number_1, number_2);
-        document.getElementById("result").textContent = `Result: ${result}`;
-    });
+    document.getElementById('result').textContent = `Result: ${num1 + num2}`;
 });
